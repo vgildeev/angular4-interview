@@ -1,20 +1,25 @@
 <header class="navbar">
   <div class="container">
     <div class="navbar-header">
-      <a routerLink="/" class="navbar-brand">Home</a>
+      <a routerLink="/" class="navbar-brand">
+        <img src="http://placehold.it/20x20" alt="Logo" />
+      </a>
     </div>
-    <nav class="nav navbar-nav navbar-right col-sm-6">
-      <div class="input-group">
-        <input type="text"
-               placeholder="Search"
-               [(ngModel)]="term"
-               class="form-control" />
-        <div class="input-group-btn">
-          <button type="button" class="btn btn-primary" (click)="searchProfile(term)">
-            <i class="glyphicon glyphicon-search"></i>
-          </button>
+    <form class="navbar-form navbar-right col-sm-6">
+      <div class="form-group">
+        <div class="input-group">
+          <input type="text"
+                 placeholder="Search"
+                 name="term"
+                 [(ngModel)]="term"
+                 class="form-control" />
+          <div class="input-group-btn">
+            <button type="button" class="btn btn-primary" (click)="searchProfile(term)">
+              <i class="glyphicon glyphicon-search"></i>
+            </button>
+          </div>
         </div>
       </div>
-    </nav>
+    </form>
   </div>
  </header>

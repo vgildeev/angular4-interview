@@ -10,6 +10,7 @@ import { Profile } from '../../shared/models';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  term: string;
 
   constructor(
     private router: Router,
@@ -19,9 +20,11 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {}
 
   searchProfile(term: string) {
-    this.profilesService.getProfileByUserName(term).then((profile: Profile) => {
-      this.router.navigate(['/profiles', profile.id]);
-      this.term = '';
-    });
+    if (term) {
+      this.profilesService.getProfileByUserName(term).then((profile: Profile) => {
+        this.router.navigate(['/profiles', profile.id]);
+        this.term = '';
+      }).catch(err => console.log(err));
+    }
   }
 }
