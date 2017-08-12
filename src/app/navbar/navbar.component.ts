@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+
+import { ProfilesService } from '../../shared/services';
+import { Profile } from '../../shared/models';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +11,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private profilesService: ProfilesService,
+  ) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  searchProfile(term: string) {
+    this.profilesService.getProfileByUserName(term).then((profile: Profile) => {
+      this.router.navigate(['/profiles', profile.id]);
+      this.term = '';
+    });
   }
-
 }

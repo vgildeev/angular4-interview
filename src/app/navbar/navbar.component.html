@@ -3,8 +3,18 @@
     <div class="navbar-header">
       <a routerLink="/" class="navbar-brand">Home</a>
     </div>
-    <nav class="nav navbar-nav navbar-right">
-      <input type="text" placeholder="Search" class="form-control" />
+    <nav class="nav navbar-nav navbar-right col-sm-6">
+      <div class="input-group">
+        <input type="text"
+               placeholder="Search"
+               [(ngModel)]="term"
+               class="form-control" />
+        <div class="input-group-btn">
+          <button type="button" class="btn btn-primary" (click)="searchProfile(term)">
+            <i class="glyphicon glyphicon-search"></i>
+          </button>
+        </div>
+      </div>
     </nav>
   </div>
  </header>
