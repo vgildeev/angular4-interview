@@ -1,3 +1,34 @@
-<p>
-  profile works!
-</p>
+<div *ngIf="profile" class="container">
+  <div class="media">
+    <div class="media-left profile-avatar">
+      <img [src]="profile.avatar" alt="avatar" />
+    </div>
+    <div class="media-body">
+      <h3>{{profile.nickname}}</h3>
+      <div class="description">{{profile.bio}}</div>
+    </div>
+  </div>
+
+  <h2>Repositories</h2>
+  <hr />
+  <table *ngIf="profile.repositories.length" cellspacing="0" class="table">
+    <thead>
+      <tr>
+        <th>Repo title</th>
+        <th>Language</th>
+        <th>Link</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let repo of profile.repositories">
+        <td>{{repo.title}}</td>
+        <td>{{repo.language}}</td>
+        <td>{{repo.link}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!profile.repositories.length" class="jumbotron">
+    <h3>User {{profile.nickname}} does not have any repos yet</h3>
+  </div>
+</div>
