@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 
 import { ProfilesService } from '../../shared/services';
@@ -16,13 +16,14 @@ export class ProfileComponent implements OnInit {
   constructor(
     private profilesService: ProfilesService,
     private route: ActivatedRoute,
+    private router: Router,
   ) {}
 
   ngOnInit() {
     this.route.params.subscribe(params =>
       this.profilesService.getProfileById(params.id)
         .then((profile: Profile) => this.profile = profile)
-        .catch(err => console.log(err))
+        .catch(err => this.router.navigate(['/home']))
     );
   }
 
