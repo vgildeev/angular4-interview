@@ -8,6 +8,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 
+import { ProfilesService } from '../shared/services';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,7 @@ import { ProfileComponent } from './profile/profile.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ProfilesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

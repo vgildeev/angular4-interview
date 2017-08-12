@@ -10,7 +10,7 @@ const appRoutes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'profile/:id',
+    path: 'profiles/:id',
     component: ProfileComponent
   },
   {
