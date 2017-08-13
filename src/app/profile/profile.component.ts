@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import 'rxjs/add/operator/switchMap';
 
 import { ProfilesService } from '../../shared/services';
 import { Profile } from '../../shared/models';

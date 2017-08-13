@@ -7,11 +7,13 @@ import { ProfileComponent } from './profile/profile.component';
 const appRoutes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+    data: {state: 'home'}
   },
   {
     path: 'profiles/:id',
-    component: ProfileComponent
+    component: ProfileComponent,
+    data: {state: 'profile'}
   },
   {
     path: '**',
