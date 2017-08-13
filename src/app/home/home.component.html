@@ -1,5 +1,9 @@
 <div class="container">
   <div class="jumbotron">
     <h1>Home Page</h1>
+    <p>Possible user nicknames to search</p>
+    <ul>
+      <li *ngFor="let name of nicknames">{{name}}</li>
+    </ul>
   </div>
 </div>

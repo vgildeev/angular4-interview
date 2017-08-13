@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import ProfilesMocks from 'shared/mocks/profiles.mock';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  nicknames: string[];
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
+    this.nicknames = ProfilesMocks.map(p => p.nickname);
   }
-
 }
