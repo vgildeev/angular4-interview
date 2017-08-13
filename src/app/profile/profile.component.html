@@ -20,13 +20,23 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let repo of profile.repositories">
+      <tr *ngFor="let repo of profile.repositories | slice:paginateFrom:paginateTo">
         <td>{{repo.title}}</td>
         <td>{{repo.language}}</td>
         <td>{{repo.link}}</td>
       </tr>
     </tbody>
   </table>
+  <nav *ngIf="profile.repositories.length > perPage">
+    <ul class="pager">
+      <li class="previous" (click)='prevPage()' [ngClass]="{'disabled': currentPage === 1}">
+        <a href="javascript:;"><span>&larr;</span> Prev</a>
+      </li>
+      <li class="next" (click)='nextPage()' [ngClass]="{'disabled': currentPage === totalPages}">
+        <a href="javascript:;">Next <span>&rarr;</span></a>
+      </li>
+    </ul>
+  </nav>
 
   <div *ngIf="!profile.repositories.length" class="jumbotron">
     <h3>User {{profile.nickname}} does not have any repos yet</h3>
