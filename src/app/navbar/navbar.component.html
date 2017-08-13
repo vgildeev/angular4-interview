@@ -9,7 +9,7 @@
       <div class="form-group">
         <div class="input-group">
           <input type="text"
-                 placeholder="Search"
+                 placeholder="Type at least 2 chars..."
                  name="term"
                  [(ngModel)]="term"
                  class="form-control" />
@@ -20,6 +20,11 @@
           </div>
         </div>
       </div>
+      <ul class="autocomplete list-group">
+        <li *ngFor="let profile of filteredProfiles(term)"class="list-group-item">
+          <a [routerLink]="(['/profiles', profile.id])" (click)="term = ''">{{profile.nickname}}</a>
+        </li>
+      </ul>
     </form>
   </div>
  </header>

@@ -2,3 +2,15 @@
   background: #24292e;
   border-radius: 0;
 }
+
+.navbar-form {
+  padding: 0;
+}
+
+.autocomplete {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 10;
+  width: 100%;
+}
