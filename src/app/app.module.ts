@@ -9,21 +9,24 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 
-import { ProfilesService } from '../shared/services';
+import { ProfilesService, ModalsService } from '../shared/services';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
   ],
-  providers: [ProfilesService],
+  entryComponents: [ModalComponent],
+  providers: [ProfilesService, ModalsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

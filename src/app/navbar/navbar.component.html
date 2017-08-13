@@ -23,3 +23,11 @@
     </form>
   </div>
  </header>
+
+ <ng-template #modalAlert>
+   <div class="modal-header">
+     <a href="javascript:;" class="close" (click)="closeModal()">&times;</a>
+     <h3 class="modal-title text-danger">Alert</h3>
+   </div>
+   <div class="modal-body">There is no such user.</div>
+ </ng-template>
